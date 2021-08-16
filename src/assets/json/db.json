@@ -1,0 +1,20 @@
+{
+  "employee": [
+    {
+      "firstname": "Black",
+      "lastname": "Widow",
+      "birthdate": "2021-08-10",
+      "gender": "Male",
+      "department": "Computer",
+      "id": 2
+    },
+    {
+      "firstname": "Ashish",
+      "lastname": "Patel",
+      "birthdate": "2021-08-05",
+      "gender": "Female",
+      "department": "Worker",
+      "id": 3
+    }
+  ]
+}

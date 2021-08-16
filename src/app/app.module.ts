@@ -11,14 +11,12 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
-import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,

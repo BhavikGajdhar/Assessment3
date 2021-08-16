@@ -1,14 +1,11 @@
+<p>assessment3 work!</p>
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/home">Home</a>
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  <div class="navbar-nav d-flex w-100">
+      <a class="nav-item nav-link" routerLink="/employee" routerLinkActive='active'>employee</a>
+      <a class="nav-item nav-link ml-auto" (click)="logout()">Logout</a>
   </div>
 </nav>
-<div class="jumbotron">
-  <div class="container">
-      <div class="row">
-              <router-outlet></router-outlet>
-          
-      </div>
-  </div>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
+
