@@ -1,3 +1,14 @@
-<p>assessment work!</p>
-<a routerLink="/"></a>
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/home">Home</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+              <router-outlet></router-outlet>
+          
+      </div>
+  </div>
+</div>

@@ -6,15 +6,16 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from '../login/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class BasicAuthInterceptor implements HttpInterceptor {
 
-  constructor(private authenticationService: AuthService) {}
+  constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
+    // add authorization header with basic auth credentials if available
+    
     let currentUser = JSON.parse(localStorage.getItem('currentUser')!);
     if (currentUser && currentUser.authdata) {
         request = request.clone({
@@ -25,6 +26,5 @@ export class BasicAuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request);
-}
-  
+  }
 }

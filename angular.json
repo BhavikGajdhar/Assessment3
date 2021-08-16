@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "c1596e2e-e1d9-4307-88e2-ade97ce8510e"
+    "analytics": "65b452d4-dfcd-4026-b865-e3236ad5615d"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "assessment3": {
+    "ass3-emp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/assessment3",
+            "outputPath": "dist/ass3-emp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "assessment3:build:production"
+              "browserTarget": "ass3-emp:build:production"
             },
             "development": {
-              "browserTarget": "assessment3:build:development"
+              "browserTarget": "ass3-emp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "assessment3:build"
+            "browserTarget": "ass3-emp:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "assessment3"
+  "defaultProject": "ass3-emp"
 }
