@@ -43,7 +43,7 @@ export class EmployeeService {
   }
   //Delete UserBy Id
   public deleteUser(id: number) {
-    return this.http.delete<Employee>(this.apiURL + '/' + id);
+    return this.http.delete<number>(this.apiURL + '/' + id);
   }
 
 }

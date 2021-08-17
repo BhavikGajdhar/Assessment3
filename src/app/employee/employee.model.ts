@@ -7,4 +7,5 @@ export class Employee {
    gender!:String;
    department!:string;
    enable?:string;
+   checked?: boolean;
 }

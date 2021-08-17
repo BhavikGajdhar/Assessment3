@@ -19,6 +19,9 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
   public  reverse!: boolean;
   public orderType!: string;
   public key!: string;
+  curPage!: number;
+  pageSize!: number;
+  
 
   @Input() public set userList(id: Employee[]){
     
@@ -39,6 +42,8 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
   constructor(private ListPresenter:ListPresenterService
     ) { 
     this._userList=[];
+    this.curPage = 1;
+    this.pageSize = 5; 
   }
  
   ngOnInit(): void {
@@ -49,13 +54,13 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
    }
   
   }
+  //Searching Data 
   ngAfterViewInit():void{
     const inForm =this.Form.valueChanges;
     inForm!.pipe(
       
       map(data=>data.search),
-      debounceTime(500),
-      // switchMap(res=>this.api.getSearch(res))
+      debounceTime(500)
       )
     .subscribe(res=>{
      this.search.emit(res)})
@@ -64,13 +69,37 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
     
     this.ListPresenter.deleteUser(id)
   }
-  
+  //Sorting the data
   public sortData(key: string): void {
     this.reverse = !this.reverse;
     this.key = key;
     this.orderType = this.ListPresenter.order(this.orderType);
     this.sort.emit({ key: this.key, order: this.orderType });
   }
+   //Check all checkbox
+   public checkAllCheckBox(ev:any) {
+		this.userList.forEach(x => x.checked = ev.target.checked)
+	}
+
+
+  //To check whether checkbox is checked or not
+	public isAllCheckBoxChecked() {
+		return this.userList.every(p => p.checked);
+	}
+   //Bulk delete method
+   public deleteProducts(): void {
+		const selectedID:any = this.userList.filter(employee => employee.checked).map(p => p.id);
+		
+		if(selectedID && selectedID.length > 0) {
+      
+			this.ListPresenter.deleteUser(selectedID)
+		}
+	}
+  //paggination method for ceil
+  numberOfPages() {
+    return Math.ceil(this.userList.length / this.pageSize);
+  };
+
 
 
 

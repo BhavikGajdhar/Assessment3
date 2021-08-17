@@ -25,7 +25,7 @@
           <div class="secarch px-2 bg-white">
             <form #Form="ngForm" >
                 <div class="d-flex   align-items-center" >
-                      <input type="text"  name="search"  class="col md-7 "   (ngModel)="searchText" placeholder="Searching all Flied">
+                      <input type="text"  name="search"  class="col md-7 "   (ngModel)="searchText" placeholder="Searching all Field">
                       <label for="search"><span class="fa fa-search p-2 bg-primary text-danger"></span></label>
                 </div>
             </form>
@@ -34,7 +34,7 @@
     <div class="sub-header d-flex justify-content-between align-items-center">
       <div class="buttons px-3">
         <button class="btn btn-primary"  routerLink="add">Add New</button>
-        <button class="btn btn-secondary">Delete</button>
+        <button class="btn btn-danger " (click)="deleteProducts()">Delete</button>
       </div>
       <!-- <div class="pagination pr-5">
         <p class="mb-0">Displaying <strong>1-9</strong> of <strong>9</strong></p>
@@ -45,7 +45,7 @@
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col"><input type="checkbox" name="" id=""></th>
+            <th scope="col"><input type="checkbox" name="" id=""  [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
             <th scope="col" class="position" (click)="sortData('firstname')">
                 FIRST NAME<span class="fa fa-sort"></span>
                 <span  *ngIf="key =='firstname'"
@@ -69,33 +69,32 @@
               </th>
           </tr>
         </thead>
-        <tbody *ngFor="let user of userList ; let i=index" >
+        <tbody *ngFor="let user of userList| slice: (curPage * pageSize) - pageSize :curPage * pageSize; let i=index" >
           <tr >
             <td scope="row" class="d-flex">
-                <span class="btn fa fa-pencil"  routerLink="/employee/edit/{{user.id}}">
-                </span><span class="btn fa fa-trash"  (click)="deleteUser(user.id)"></span></td>
-            <!-- <td scope="row" class="d-flex">
-                <span class="dropdown-item border-bottom border-dark text-info" type="button"
-                routerLink="/user/edit/{{user.id}}"></span>
-                <span class="dropdown-item text-danger" type="button"
-                (click)="deleteUser(user.id)"></span>
-            </td> -->
-            <th scope="col"><input type="checkbox" name="" id=""></th>
+                <span class="btn fa fa-pencil"  routerLink="/employee/edit/{{user.id}}"></span>
+                <span class="btn fa fa-trash"  (click)="deleteUser(user.id)"></span>
+            </td>
+            <th scope="col"><input type="checkbox"  type="checkbox" value="{{user.id}}" [(ngModel)]="userList[i].checked"></th>
             <td> {{user.firstname}} </td>
             <td> {{user.lastname}} </td>
             <td> {{user.birthdate}} </td>
             <td> {{user.gender}} </td>
-            <td><input type="checkbox" name="" id=""></td>
+            <td><input type="checkbox"  type="checkbox" [(ngModel)]="userList[i].enable" ></td>
             <td> {{user.department}} </td>
         </tr>
         </tbody>
       </table>
+      <div> 
+      <p class="pagination">
+        <button  class = "btn btn-primary btn-xs" [disabled]="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+        <span>Page {{curPage}} of {{numberOfPages()}}</span>
+        <button  class = "btn btn-primary btn-xs" [disabled]="curPage >= userList.length/pageSize" (click)="curPage = curPage + 1">NEXT</button>
+    </p>
+  </div>
       <ng-template #noResults>
-        <p>No results found .</p>
+        <p>No results found.</p>
       </ng-template>
     </div>
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script> -->
 </body>
 </html>
