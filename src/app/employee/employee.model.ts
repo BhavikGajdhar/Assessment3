@@ -6,6 +6,6 @@ export class Employee {
    birthdate!:string;
    gender!:String;
    department!:string;
-   enable?:string;
+   enable!:boolean;
    checked?: boolean;
 }

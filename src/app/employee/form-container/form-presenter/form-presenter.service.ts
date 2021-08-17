@@ -17,7 +17,8 @@ export class FormPresenterService {
       lastname: ['',[Validators.required,Validators.pattern(/^[a-zA-Z_-]{3,15}$/)]],       
       birthdate: ['',Validators.required],      
       gender: ['',Validators.required],       
-      department: ['',[Validators.required,Validators.pattern(/^[a-zA-Z_-]{2,15}$/)]]  
+      department: ['',[Validators.required,Validators.pattern(/^[a-zA-Z_-]{2,15}$/)]],
+      enable:['']
     })
   }
   public user(userForm: FormGroup) {
