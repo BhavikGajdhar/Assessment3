@@ -42,8 +42,8 @@ export class EmployeeService {
     return this.http.put<Employee>(this.apiURL + '/' + id, data);
   }
   //Delete UserBy Id
-  public deleteUser(id: number) {
-    return this.http.delete<number>(this.apiURL + '/' + id);
+  public deleteUser(id: number): Observable<Employee>  {
+    return this.http.delete<Employee>(this.apiURL + '/' + id);
   }
 
 }

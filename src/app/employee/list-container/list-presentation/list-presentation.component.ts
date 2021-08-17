@@ -87,7 +87,7 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
 		return this.userList.every(p => p.checked);
 	}
    //Bulk delete method
-   public deleteProducts(): void {
+   public bulkDelete(): void {
 		const selectedID:any = this.userList.filter(employee => employee.checked).map(p => p.id);
 		
 		if(selectedID && selectedID.length > 0) {
