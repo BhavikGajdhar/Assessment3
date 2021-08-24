@@ -12,7 +12,8 @@ import { FormPresenterService } from '../form-presenter/form-presenter.service';
 })
 export class FormPresentationComponent implements OnInit {
 
-  
+   submitted = false;
+   gender="Male";
   private _userIdData: Employee[] = [];
   @Input() public set UserDataById(id: Employee[]){
     if(id){

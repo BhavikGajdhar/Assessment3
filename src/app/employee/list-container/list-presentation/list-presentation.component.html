@@ -1,4 +1,4 @@
-<p>list-presentation works!</p>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     <header class="d-flex align-items-center justify-content-between pb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-white">
-              <li class="breadcrumb-item"><a href="#"><span class="fa fa-home"></span></a></li>
+              <li class="breadcrumb-item"><span class="fa fa-home text-primary"></span></li>
               <li class="divide breadcrumb-item active" aria-current="page">
                 <div class="dropdown d-inline">
                     <button class="btn p-0 btn-transparent text-primary "  aria-haspopup="true" aria-expanded="false">
@@ -36,9 +36,13 @@
         <button class="btn btn-primary"  routerLink="add">Add New</button>
         <button class="btn btn-danger " (click)="bulkDelete()">Delete</button>
       </div>
-      <!-- <div class="pagination pr-5">
-        <p class="mb-0">Displaying <strong>1-9</strong> of <strong>9</strong></p>
-      </div> -->
+      <div class="pagination pr-5">
+        <p>
+          <button  class = "btn btn-primary btn-xs" [disabled]="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+          <span>Page {{curPage}} of {{numberOfPages()}}</span>
+          <button  class = "btn btn-primary btn-xs" [disabled]="curPage >= userList.length/pageSize" (click)="curPage = curPage + 1">NEXT</button>
+        </p>
+      </div>
     </div>
     <div class="table-responsive p-4">
       <table class="table table-bordered" *ngIf="(userList).length > 0; else noResults" >
@@ -80,18 +84,11 @@
             <td> {{user.lastname}} </td>
             <td> {{user.birthdate}} </td>
             <td> {{user.gender}} </td>
-            <td><input type="checkbox"  type="checkbox" [(ngModel)]="userList[i].enable" ></td>
+            <td><input type="checkbox"  type="checkbox" [(ngModel)]="userList[i].enable"></td>
             <td> {{user.department}} </td>
         </tr>
         </tbody>
       </table>
-      <div> 
-      <p class="pagination">
-        <button  class = "btn btn-primary btn-xs" [disabled]="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
-        <span>Page {{curPage}} of {{numberOfPages()}}</span>
-        <button  class = "btn btn-primary btn-xs" [disabled]="curPage >= userList.length/pageSize" (click)="curPage = curPage + 1">NEXT</button>
-    </p>
-  </div>
       <ng-template #noResults>
         <p>No results found.</p>
       </ng-template>

@@ -88,7 +88,7 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
 	}
    //Bulk delete method
    public bulkDelete(): void {
-		const selectedID:any = this.userList.filter(employee => employee.checked).map(p => p.id);
+		let selectedID:any = this.userList.filter(employee => employee.checked).map(p => p.id);
 		
 		if(selectedID && selectedID.length > 0) {
       
@@ -96,7 +96,7 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
 		}
 	}
   //paggination method for ceil
-  numberOfPages() {
+  public numberOfPages() {
     return Math.ceil(this.userList.length / this.pageSize);
   };
 

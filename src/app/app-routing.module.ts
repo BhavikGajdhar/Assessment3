@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   
   { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) , 
-  //  canActivate: [AuthGuard] 
+   canActivate: [AuthGuard] 
   },
   { path: '**', redirectTo: '' }
 

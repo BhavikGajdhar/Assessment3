@@ -31,7 +31,7 @@ export class ListContainerComponent implements OnInit {
     this.userList$ = this.userservice.getSearch( this.searchString);
   }
   //delete with api call
-  public onDeleteId(id: number) {
+  public onDeleteId(id:number[]) {
     if (window.confirm('Are you sure, you want to delete?')) {
     
     this.userList$ = this.userservice.deleteUser(id)

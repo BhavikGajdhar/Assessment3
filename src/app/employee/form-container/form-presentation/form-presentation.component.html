@@ -1,12 +1,23 @@
-<p>form-presentation works!</p>
+
 <div class="container">
     <form class="row" [formGroup]="userForm">
         
         <div class="col-md-9">
             <label for="name" class="form-label">FIRST NAME: </label>
             <input type="text" class="form-control"  formControlName="firstname" id="firstname">
-            <span class="error" *ngIf="!userForm.controls.firstname.valid && userForm.controls.firstname.touched" 
+            <!-- <span class="error" *ngIf="!userForm.controls.firstname.valid && userForm.controls.firstname.touched" 
             class="text-danger"> First Name is required</span>
+            <span class="error" class="text-danger"*ngIf="!userForm.controls.firstname.valid && userForm.controls.firstname.errors?.pattern ">
+            Only characters are allow.
+            </span> -->
+            <span class="text-danger" 
+            *ngIf="!userForm.controls.firstname.valid && (userForm.controls.firstname.touched || submitted) && userForm.controls.firstname.errors?.required">
+            First Name is required
+        </span>
+        <span class="text-danger"
+            *ngIf="(userForm.controls.firstname.touched) && userForm.controls.firstname.errors?.pattern">
+            Only characters are allow.
+        </span>
         </div>
     
         <div class="col-md-9">
@@ -22,20 +33,17 @@
             class="text-danger"> Birhdate is required</span>
         </div>
         <div class="col-md-9">
-            <label for="gender" class="form-label"> GENDER </label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="male"  formControlName='gender' value="Male" defualtchecked>
-                <label class="form-check-label" for="male"> Male
+            <label for="gender" class="radio-inline" style="margin-right: 15px;"> GENDER: </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="male"  formControlName='gender' value="Male" [(ngModel)]="gender">
+                <label class="form-check-label " for="male"> Male
                 </label>
             </div>
-            <div class="form-check">
+            <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="gender"  id="female" formControlName='gender'  value="Female">
                 <label class="form-check-label" for="female"> Female
                 </label>
             </div>
-            <!-- <span class="error-msg" *ngIf=" bankdetailForm.controls['paymentOptions'].errors?.required">
-                Please select any option above!
-            </span> -->
         </div>
         <div class="col-md-9">
             <label for="accountno" class="form-label">DEPARTMENT: </label>

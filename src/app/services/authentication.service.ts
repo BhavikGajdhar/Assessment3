@@ -18,28 +18,28 @@ export class AuthenticationService {
   ) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')!));
     this.user = this.userSubject.asObservable();
-   }
+  }
 
-   public get userValue(): User {
+  public get userValue(): User {
     return this.userSubject.value;
-}
+  }
 
-login(username: string, password: string) {
+  login(username: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
-        .pipe(map((user: User) => {
-            // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-            user.authdata = window.btoa(username + ':' + password);
-            localStorage.setItem('user', JSON.stringify(user));
-            this.userSubject.next(user);
-            return user;
-        }));
-}
+      .pipe(map((user: User) => {
+        // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
+        user.authdata = window.btoa(username + ':' + password);
+        localStorage.setItem('user', JSON.stringify(user));
+        this.userSubject.next(user);
+        return user;
+      }));
+  }
 
-logout() {
+  logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
     this.userSubject.next(null);
     this.router.navigate(['/']);
-}
+  }
 
 }

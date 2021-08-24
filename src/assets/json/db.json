@@ -6,6 +6,7 @@
       "birthdate": "2021-08-10",
       "gender": "Female",
       "department": "Computer",
+      "enable": true,
       "id": 2
     },
     {
@@ -14,6 +15,7 @@
       "birthdate": "2021-08-05",
       "gender": "Male",
       "department": "Worker",
+      "enable": false,
       "id": 3
     },
     {
@@ -22,184 +24,8 @@
       "birthdate": "2021-08-17",
       "gender": "Male",
       "department": "Mech",
-      "id": 4
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 5
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 6
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 7
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 8
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 9
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 10
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 11
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 12
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 13
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 14
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 15
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 16
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 17
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 18
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 19
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 20
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 21
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 22
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 23
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 24
-    },
-    {
-      "firstname": "Jarry",
-      "lastname": "Patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "Mech",
-      "id": 25
-    },
-    {
-      "firstname": "ankit",
-      "lastname": "patel",
-      "birthdate": "2021-08-17",
-      "gender": "Male",
-      "department": "mech",
       "enable": true,
-      "id": 26
+      "id": 4
     }
   ]
 }
