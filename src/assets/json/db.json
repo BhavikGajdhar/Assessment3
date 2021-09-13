@@ -6,16 +6,16 @@
       "birthdate": "2021-08-10",
       "gender": "Female",
       "department": "Computer",
-      "enable": true,
+      "enable": false,
       "id": 2
     },
     {
       "firstname": "Ashish",
       "lastname": "Patel",
       "birthdate": "2021-08-05",
-      "gender": "Male",
+      "gender": "Female",
       "department": "Worker",
-      "enable": false,
+      "enable": true,
       "id": 3
     },
     {
@@ -26,6 +26,24 @@
       "department": "Mech",
       "enable": true,
       "id": 4
+    },
+    {
+      "firstname": "Ankit",
+      "lastname": "Prajapati",
+      "birthdate": "2021-09-03",
+      "gender": "Male",
+      "department": "Angular",
+      "enable": false,
+      "id": 5
+    },
+    {
+      "firstname": "Vishwajit",
+      "lastname": "Nagtilak",
+      "birthdate": "1998-04-30",
+      "gender": "Female",
+      "department": "UI",
+      "enable": true,
+      "id": 6
     }
   ]
 }

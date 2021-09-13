@@ -13,10 +13,10 @@ import { ListPresenterService } from '../list-presenter/list-presenter.service';
 })
 export class ListPresentationComponent implements OnInit,AfterViewInit {
 
-  searchText!: string;
-  @ViewChild('Form')
-  Form!: NgForm;
-  public  reverse!: boolean;
+  public searchText!:string;
+  // @ViewChild('Form')
+  // Form!: NgForm;
+  public  reverse: boolean=false;
   public orderType!: string;
   public key!: string;
   curPage!: number;
@@ -43,7 +43,7 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
     ) { 
     this._userList=[];
     this.curPage = 1;
-    this.pageSize = 5; 
+    this.pageSize = 10;
   }
  
   ngOnInit(): void {
@@ -56,14 +56,14 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
   }
   //Searching Data 
   ngAfterViewInit():void{
-    const inForm =this.Form.valueChanges;
-    inForm!.pipe(
+    // const inForm =this.Form.valueChanges;
+    // inForm!.pipe(
       
-      map(data=>data.search),
-      debounceTime(500)
-      )
-    .subscribe(res=>{
-     this.search.emit(res)})
+    //   map(data=>data.search),
+    //   debounceTime(500)
+    //   )
+    // .subscribe(res=>{
+    //  this.search.emit(res)})
   }
   public deleteUser(id: number) {
     
@@ -97,8 +97,8 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
 	}
   //paggination method for ceil
   public numberOfPages() {
-    return Math.ceil(this.userList.length / this.pageSize);
-  };
+    return Math.ceil(this.userList.length / this.pageSize); 
+  }
 
 
 

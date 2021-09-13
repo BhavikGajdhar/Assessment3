@@ -10,6 +10,7 @@ import { FormPresentationComponent } from './form-container/form-presentation/fo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterPipe } from './list-container/list-presentation/filter.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListContainerComponent,
     FormContainerComponent,
     ListPresentationComponent,
-    FormPresentationComponent
+    FormPresentationComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,

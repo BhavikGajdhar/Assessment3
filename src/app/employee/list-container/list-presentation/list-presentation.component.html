@@ -1,14 +1,14 @@
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <title>Document</title>
+  </head>
+ <body>
     <header class="d-flex align-items-center justify-content-between pb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-white">
@@ -22,11 +22,12 @@
               </li>
             </ol>
           </nav>
-          <div class="secarch px-2 bg-white">
+          <div class="secarch px-2 bg-white p-3">
             <form #Form="ngForm" >
-                <div class="d-flex   align-items-center" >
-                      <input type="text"  name="search"  class="col md-7 "   (ngModel)="searchText" placeholder="Searching all Field">
-                      <label for="search"><span class="fa fa-search p-2 bg-primary text-danger"></span></label>
+                <div class="d-flex custom-rounded border align-items-center" >
+                  <span class="fa fa-search p-2"></span>
+                      <input type="text" name="search"  class="col md-7 border-0 bg-transparent outline-none p-0"  [(ngModel)]="searchText" placeholder="Search....">
+                    
                 </div>
             </form>
           </div>
@@ -45,36 +46,38 @@
       </div>
     </div>
     <div class="table-responsive p-4">
-      <table class="table table-bordered" *ngIf="(userList).length > 0; else noResults" >
+      <table class="table table-bordered">
         <thead>
-          <tr>
+          <tr  *ngIf="(userList | filter: searchText).length > 0; else noResults">
             <th scope="col"></th>
             <th scope="col"><input type="checkbox" name="" id=""  [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
             <th scope="col" class="position" (click)="sortData('firstname')">
-                FIRST NAME<span class="fa fa-sort"></span>
-                <span  *ngIf="key =='firstname'"
-                      [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+               FIRST NAME
+                <span  *ngIf="key =='firstname'">
+                     <i class="fas" [ngClass]="{'fa fa-sort-asc':reverse,'fa fa-sort-desc':!reverse}"></i> </span>
                       
               </th>
               <th scope="col" class="position" (click)="sortData('lastname')">
-                LAST NAME<span class="fa fa-sort"></span>
-                <span  *ngIf="key =='firstname'"
-                      [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                LAST NAME
+                <span  *ngIf="key =='lastname'">
+                <i class="fas" [ngClass]="{'fa fa-sort-asc':reverse,'fa fa-sort-desc':!reverse}"></i></span>
                       
               </th>
             <th scope="col">BIRTHDATE</th>
             <th scope="col">GENDER</th>
             <th scope="col">ENABLED</th>
             <th scope="col" class="position" (click)="sortData('department')">
-                DEPARTMENT<span class="fa fa-sort"></span>
-                <span  *ngIf="key =='firstname'"
-                      [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                DEPARTMENT
+                <span  *ngIf="key =='department'">
+                  <i class="fas" [ngClass]="{'fa fa-sort-asc':reverse,'fa fa-sort-desc':!reverse}"></i></span>
                       
               </th>
           </tr>
         </thead>
-        <tbody *ngFor="let user of userList| slice: (curPage * pageSize) - pageSize :curPage * pageSize; let i=index" >
-          <tr >
+       
+        <tbody >
+          
+          <tr *ngFor="let user of userList| filter:searchText | slice: (curPage * pageSize) - pageSize: (curPage * pageSize); let i=index"> 
             <td scope="row" class="d-flex">
                 <span class="btn fa fa-pencil"  routerLink="/employee/edit/{{user.id}}"></span>
                 <span class="btn fa fa-trash"  (click)="deleteUser(user.id)"></span>
@@ -82,16 +85,16 @@
             <th scope="col"><input type="checkbox"  type="checkbox" value="{{user.id}}" [(ngModel)]="userList[i].checked"></th>
             <td> {{user.firstname}} </td>
             <td> {{user.lastname}} </td>
-            <td> {{user.birthdate}} </td>
+            <td> {{user.birthdate| date:'longDate'}} </td>
             <td> {{user.gender}} </td>
-            <td><input type="checkbox"  type="checkbox" [(ngModel)]="userList[i].enable"></td>
+            <td><input type="checkbox"  type="checkbox"  [(ngModel)]="userList[i].enable"></td>
             <td> {{user.department}} </td>
         </tr>
         </tbody>
       </table>
       <ng-template #noResults>
-        <p>No results found.</p>
+        <h6 style="color: red">No results found for "{{searchText}}".</h6>
       </ng-template>
     </div>
-</body>
+  </body>
 </html>

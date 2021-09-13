@@ -5,7 +5,7 @@ import { FormContainerComponent } from './form-container/form-container.componen
 import { ListContainerComponent } from './list-container/list-container.component';
 
 const routes: Routes = [{ path: '', component: EmployeeComponent ,
-                       children: [
+                        children: [
                         {
                           path: '',
                           component: ListContainerComponent,
