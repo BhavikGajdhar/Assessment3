@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './list-container/list-presentation/filter.pipe';
+import { Auth1Guard } from '../guards/auth1.guard';
+
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import { FilterPipe } from './list-container/list-presentation/filter.pipe';
     FormContainerComponent,
     ListPresentationComponent,
     FormPresentationComponent,
-    FilterPipe,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,6 @@ import { FilterPipe } from './list-container/list-presentation/filter.pipe';
     FormsModule,
     HttpClientModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,Auth1Guard],
 })
 export class EmployeeModule { }

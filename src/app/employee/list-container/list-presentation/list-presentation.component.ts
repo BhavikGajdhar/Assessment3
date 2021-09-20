@@ -88,13 +88,20 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
 	}
    //Bulk delete method
    public bulkDelete(): void {
-		let selectedID:any = this.userList.filter(employee => employee.checked).map(p => p.id);
+    if(window.confirm('Are sure you want to delete selected items ?')){
+		let selectedID:any= this.userList.filter(employee => employee.checked).map(p => p.id);
 		
-		if(selectedID && selectedID.length > 0) {
-      
-			this.ListPresenter.deleteUser(selectedID)
-		}
-	}
+    if(selectedID && selectedID.length > 0) {
+       this.ListPresenter.deleteUser(selectedID);
+    }
+		// for (var i in selectedID) {
+		// 	this.service.deleteUser(selectedID[i]).subscribe(data=>{
+    //     console.log(data);
+    //    }   
+    //    ) 
+		// }
+	  }
+}
   //paggination method for ceil
   public numberOfPages() {
     return Math.ceil(this.userList.length / this.pageSize); 

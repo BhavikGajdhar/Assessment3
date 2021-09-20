@@ -12,6 +12,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { AuthGuard } from './guards/auth.guard';
+import { Auth1Guard } from './guards/auth1.guard';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { AuthGuard } from './guards/auth.guard';
       AuthenticationService,
       UserService,
       AuthGuard,
+      Auth1Guard,
       { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
       { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
       // provider used to create fake backend
-      fakeBackendProvider
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

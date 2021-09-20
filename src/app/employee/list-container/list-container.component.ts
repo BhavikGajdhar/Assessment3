@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -18,6 +18,7 @@ export class ListContainerComponent implements OnInit {
   constructor( private userservice: EmployeeService) { 
     this.userList$ = this.userservice.getUsers();
   }
+  
 
   ngOnInit(): void {
 
@@ -31,11 +32,12 @@ export class ListContainerComponent implements OnInit {
     this.userList$ = this.userservice.getSearch( this.searchString);
   }
   //delete with api call
-  public onDeleteId(id:number[]) {
-    if (window.confirm('Are you sure, you want to delete?')) {
-    
-    this.userList$ = this.userservice.deleteUser(id)
-    }
+  public onDeleteId(id:any) {
+    for (var i in id) {
+       this.userservice.deleteUser(id[i]).subscribe();
+      }
+    // debugger
+    // this.userList$ = this.userservice.deleteUser(id)
   }
   //sorting
   public sort(value:any): void {
@@ -48,6 +50,4 @@ export class ListContainerComponent implements OnInit {
     this.searchString = query;
     this.getUsersData();
   }
-
-
 }

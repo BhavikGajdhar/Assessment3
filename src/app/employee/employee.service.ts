@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
 import { Employee } from './employee.model';
 
 @Injectable()
@@ -41,10 +41,9 @@ export class EmployeeService {
   ): Observable<Employee> {
     return this.http.put<Employee>(this.apiURL + '/' + id, data);
   }
-  //Delete UserBy Id
-  public deleteUser(id:number[]): Observable<number[]>  {
-    debugger
-    return this.http.delete<number[]>(this.apiURL+'/'+id);
-  }
 
+  //Delete UserBy Id
+  public deleteUser(id:number){
+    return this.http.delete<number>(this.apiURL+'/'+id);
+  }
 }

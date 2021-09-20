@@ -80,14 +80,14 @@
           <tr *ngFor="let user of userList| filter:searchText | slice: (curPage * pageSize) - pageSize: (curPage * pageSize); let i=index"> 
             <td scope="row" class="d-flex">
                 <span class="btn fa fa-pencil"  routerLink="/employee/edit/{{user.id}}"></span>
-                <span class="btn fa fa-trash"  (click)="deleteUser(user.id)"></span>
+                <!-- <span class="btn fa fa-trash"  (click)="deleteUser(user.id)"></span> -->
             </td>
-            <th scope="col"><input type="checkbox"  type="checkbox" value="{{user.id}}" [(ngModel)]="userList[i].checked"></th>
+            <th scope="col"><input type="checkbox"  value="{{user.id}}" [(ngModel)]="user.checked"></th>
             <td> {{user.firstname}} </td>
             <td> {{user.lastname}} </td>
             <td> {{user.birthdate| date:'longDate'}} </td>
             <td> {{user.gender}} </td>
-            <td><input type="checkbox"  type="checkbox"  [(ngModel)]="userList[i].enable"></td>
+            <td><div><input type="checkbox"   [(ngModel)]="user.enable"></div></td>
             <td> {{user.department}} </td>
         </tr>
         </tbody>
