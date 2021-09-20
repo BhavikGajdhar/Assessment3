@@ -12,6 +12,7 @@ import { EmployeeService } from './employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './list-container/list-presentation/filter.pipe';
 import { Auth1Guard } from '../guards/auth1.guard';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 
@@ -29,7 +30,8 @@ import { Auth1Guard } from '../guards/auth1.guard';
     EmployeeRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ScrollingModule,
   ],
   providers: [EmployeeService,Auth1Guard],
 })

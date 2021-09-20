@@ -65,10 +65,10 @@ export class ListPresentationComponent implements OnInit,AfterViewInit {
     // .subscribe(res=>{
     //  this.search.emit(res)})
   }
-  public deleteUser(id: number) {
+  // public deleteUser(id: number) {
     
-    this.ListPresenter.deleteUser(id)
-  }
+  //   this.ListPresenter.deleteUser(id)
+  // }
   //Sorting the data
   public sortData(key: string): void {
     this.reverse = !this.reverse;

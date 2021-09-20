@@ -40,10 +40,19 @@
       "firstname": "Vishwajit",
       "lastname": "Nagtilak",
       "birthdate": "1998-04-30",
-      "gender": "Female",
+      "gender": "Male",
       "department": "UI",
       "enable": true,
       "id": 6
+    },
+    {
+      "firstname": "Jay",
+      "lastname": "Patel",
+      "birthdate": "2021-09-20",
+      "gender": "Male",
+      "department": "mech",
+      "enable": "",
+      "id": 7
     }
   ]
 }

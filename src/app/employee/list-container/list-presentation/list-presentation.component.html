@@ -46,6 +46,7 @@
       </div>
     </div>
     <div class="table-responsive p-4">
+      <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport" >
       <table class="table table-bordered">
         <thead>
           <tr  *ngIf="(userList | filter: searchText).length > 0; else noResults">
@@ -77,7 +78,7 @@
        
         <tbody >
           
-          <tr *ngFor="let user of userList| filter:searchText | slice: (curPage * pageSize) - pageSize: (curPage * pageSize); let i=index"> 
+          <tr *cdkVirtualFor="let user of userList| filter:searchText | slice: (curPage * pageSize) - pageSize: (curPage * pageSize); let i=index"> 
             <td scope="row" class="d-flex">
                 <span class="btn fa fa-pencil"  routerLink="/employee/edit/{{user.id}}"></span>
                 <!-- <span class="btn fa fa-trash"  (click)="deleteUser(user.id)"></span> -->
@@ -92,9 +93,11 @@
         </tr>
         </tbody>
       </table>
+    </cdk-virtual-scroll-viewport>
       <ng-template #noResults>
         <h6 style="color: red">No results found for "{{searchText}}".</h6>
       </ng-template>
+   
     </div>
   </body>
 </html>

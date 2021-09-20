@@ -14,6 +14,7 @@ import { UserService } from './services/user.service';
 import { AuthGuard } from './guards/auth.guard';
 import { Auth1Guard } from './guards/auth1.guard';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { Auth1Guard } from './guards/auth1.guard';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+   
   ],
   providers: [
       AuthenticationService,

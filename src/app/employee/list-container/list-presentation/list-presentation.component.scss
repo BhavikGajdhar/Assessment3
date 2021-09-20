@@ -44,3 +44,19 @@
   .outline-none{
     outline: none;
   }
+  
+.example-viewport {
+  height: 300px;
+  width: 100%;
+  
+}
+thead{
+  position: sticky;
+  top:0;
+  overflow: hidden;
+  background-color: white;
+}
+
+.example-item {
+  height: 50px;
+}
